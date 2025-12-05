@@ -160,7 +160,7 @@ document.getElementById("voltage-text").innerText = (p.voltage ?? "--") + " V";
 document.getElementById("current-text").innerText = (p.current ?? "--") + " A";
 document.getElementById("power-text").innerText = (p.power ?? "--") + " W";
 document.getElementById("energy-text").innerText = (p.energy ?? "--") + " kWh";
-document.getElementById("frequency-text").innerText = (p.frequency ?? "--") + " Hz";
+document.getElementById("freq-text").innerText = (p.frequency ?? "--") + " Hz";
 document.getElementById("pf-text").innerText = (p.pf ?? "--");
 
     });
@@ -180,5 +180,6 @@ document.getElementById("pf-text").innerText = (p.pf ?? "--");
     if (btn4) btn4.onclick = () => toggleLamp(4);
     if (fanBtn) fanBtn.onclick = toggleFan;
 });
+
 
 
