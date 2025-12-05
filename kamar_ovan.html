@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamar Ovan</title>
+    <link rel="stylesheet" href="kamar.css">
+
+</head>
+
+
+<body>
+<a href="index.html" class="back-btn">⬅ Back</a>
+
+
+<h1 class="title">Monitoring & Control</h1>
+
+
+<div class="device-grid">
+
+    <!-- LAMPU 1 -->
+    <div class="device-box">
+        <h2>Lampu Utama</h2>
+        <img id="lamp1_img" src="lamp_off.png" class="device-img">
+        <button id="lamp1_btn" class="btn off" onclick="toggleLamp(1)">OFF</button>
+    </div>
+
+    <!-- FAN -->
+    <div class="device-box">
+        <h2>Kipas Angin</h2>
+        <img id="fan_img" src="fan_off.png" class="device-img">
+        <button id="fan_btn" class="btn off" onclick="toggleFan()">OFF</button>
+    </div>
+
+    <!-- LAMPU 3 -->
+    <div class="device-box">
+        <h2>Lampu Tidur</h2>
+        <img id="lamp3_img" src="lamp_off.png" class="device-img">
+        <button id="lamp3_btn" class="btn off" onclick="toggleLamp(3)">OFF</button>
+    </div>
+
+    <!-- LAMPU 4 -->
+    <div class="device-box">
+        <h2>Lampu Belajar</h2>
+        <img id="lamp4_img" src="lamp_off.png" class="device-img">
+        <button id="lamp4_btn" class="btn off" onclick="toggleLamp(4)">OFF</button>
+    </div>
+
+</div>
+
+<!-- ===== GAUGE GRID (Temperature + Humidity) ===== -->
+<div class="gauge-grid">
+
+    <!-- TEMPERATURE GAUGE -->
+    <div class="temp-gauge-card">
+        <h3>Temperature</h3>
+        <div class="temp-gauge-semicircle">
+            <svg class="semi-svg" viewBox="0 0 200 110">
+                <defs>
+                    <linearGradient id="tempGradient" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%"  stop-color="#0099ff"/>
+                        <stop offset="5%" stop-color="#0099ff"/>
+                        <stop offset="30%" stop-color="#0099ff"/>
+                        <stop offset="50%" stop-color="#21c821"/>
+                        <stop offset="75%" stop-color="#21c821"/>
+                        <stop offset="90%" stop-color="#ff3b3b"/>
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M 10 100 A 90 90 0 0 1 190 100"
+                    stroke="url(#tempGradient)"
+                    stroke-width="20"
+                    fill="none"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <div id="temp-needle" class="temp-needle-semi"></div>
+            <div id="temp-text" class="temp-text-semi">0°C</div>
+        </div>
+    </div>
+
+    <!-- HUMIDITY GAUGE -->
+    <div class="temp-gauge-card">
+        <h3>Humidity</h3>
+        <div class="humidity-gauge-semicircle">
+            <svg class="semi-svg" viewBox="0 0 200 110">
+                <defs>
+                    <linearGradient id="humidityGradient" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%"  stop-color="#21c821"/>
+                        <stop offset="100%" stop-color="#ff3b3b"/>
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M 10 100 A 90 90 0 0 1 190 100"
+                    stroke="url(#humidityGradient)"
+                    stroke-width="20"
+                    fill="none"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <div id="humidity-needle" class="temp-needle-semi"></div>
+            <div id="humidity-text" class="temp-text-semi">0%</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== GAUGE GRID: Voltage + Current ===== -->
+<div class="gauge-grid">
+
+    <!-- VOLTAGE GAUGE -->
+    <div class="temp-gauge-card">
+        <h3>Voltage</h3>
+        <div class="voltage-gauge-semicircle">
+            <svg class="semi-svg" viewBox="0 0 200 110">
+                <defs>
+                    <linearGradient id="voltageGradient" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#ffe800"/>
+                        <stop offset="80%" stop-color="#ff3b3b"/>
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M 10 100 A 90 90 0 0 1 190 100"
+                    stroke="url(#voltageGradient)"
+                    stroke-width="20"
+                    fill="none"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <div id="voltage-needle" class="temp-needle-semi"></div>
+            <div id="voltage-text" class="temp-text-semi">0V</div>
+        </div>
+    </div>
+
+    <!-- CURRENT GAUGE -->
+    <div class="temp-gauge-card">
+        <h3>Current</h3>
+        <div class="current-gauge-semicircle">
+            <svg class="semi-svg" viewBox="0 0 200 110">
+                <defs>
+                    <linearGradient id="currentGradient" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#ffe800"/>
+                        <stop offset="100%" stop-color="#ff3b3b"/>
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M 10 100 A 90 90 0 0 1 190 100"
+                    stroke="url(#currentGradient)"
+                    stroke-width="20"
+                    fill="none"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <div id="current-needle" class="temp-needle-semi"></div>
+            <div id="current-text" class="temp-text-semi">0A</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== PZEM MONITORING ===== -->
+<div class="pzem-grid">
+    <div class="pzem-box">
+        <h3>Energy</h3>
+        <div id="energy-text" class="pzem-value">0.0 kWh</div>
+    </div>
+    <div class="pzem-box">
+        <h3>Power</h3>
+        <div id="power-text" class="pzem-value">0.0 W</div>
+    </div>
+    <div class="pzem-box">
+        <h3>Frequency</h3>
+        <div id="freq-text" class="pzem-value">0.0 Hz</div>
+    </div>
+    <div class="pzem-box">
+        <h3>Power Factor</h3>
+        <div id="pf-text" class="pzem-value">0.0</div>
+    </div>
+</div>
+
+
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDbntAd3DzqrB5pOo4m7yO595E1zLp09FY",
+  authDomain: "smarthome-kamarovan.firebaseapp.com",
+  databaseURL: "https://smarthome-kamarovan-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "smarthome-kamarovan",
+  storageBucket: "smarthome-kamarovan.firebasestorage.app",
+  messagingSenderId: "1051456663858",
+  appId: "1:1051456663858:web:4eb3c08af3b547a3dfe72b"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.db = db;
+window.refDB = ref;
+window.setDB = set;
+window.onValueDB = onValue;
+
+</script>
+
+<script src="kamar.js"></script>
+
+</body>
+</html>

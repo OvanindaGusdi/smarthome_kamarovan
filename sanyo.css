@@ -1,0 +1,127 @@
+.back-btn {
+    position: absolute;
+    top: 85px;
+    left: 10px;
+    background: rgba(255, 0, 0, 0.96);
+    padding: 10px 18px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid rgb(255, 0, 0);
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(-4px);
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #005c97, #363795);
+    color: white;
+    text-align: center;
+}
+
+/* TITLE */
+.title {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 14px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* CARD */
+.box {
+    width: 250px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 18px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* IMAGE */
+.pump-img {
+    width: 130px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+    transition: 0.3s;
+}
+
+.pump-on {
+    filter: drop-shadow(0 0 45px rgb(0,255,0));
+}
+
+/* BUTTONS */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.25s;
+}
+
+.btn.on {
+    background: #22c55e;
+    color: white;
+}
+
+.btn.off {
+    background: #ef4444;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* TIMER */
+.timer-box {
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#timerDisplay {
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.timer-input {
+    width: 150px;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+}
+
+.timer-btn {
+    padding: 10px 30px;
+    margin-top: 10px;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background: #fd0004;
+    color: white;
+    cursor: pointer;
+}

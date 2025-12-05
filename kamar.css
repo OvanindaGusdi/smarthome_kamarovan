@@ -1,0 +1,316 @@
+.back-btn {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    background: rgba(255, 0, 0, 0.96);
+    padding: 10px 18px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid rgb(255, 0, 0);
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.238);
+    transform: translateX(-4px);
+}
+
+
+/* Latar belakang dashboard */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fa0505, #ACB6E5); /* gradient biru-hijau */
+    color: #000000;
+    text-align: center;
+}
+
+/* Atau bisa pakai solid color */
+body {
+    background: #094682fa; /* biru muda lembut */
+}
+
+
+.title {
+    top: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding: 25px 40px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #d0d0d15d, #d0d0d15d);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.378);
+    display: inline-block;
+}
+
+
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* HP RESPONSIVE */
+@media (max-width: 768px) {
+    .device-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.device-box {
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    background: linear-gradient(135deg, #d0d0d15d, #d0d0d15d);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.378);
+}
+
+.device-box h2 {
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.device-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+}
+
+/* Fan Rotate On */
+.fan-on {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Lamp Glow */
+.lamp-on {
+    filter: drop-shadow(0 0 25px orange);
+}
+
+/* BUTTON STYLE */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+/* ON → GREEN */
+.btn.on {
+    background: #22c55e;
+}
+
+/* OFF → RED */
+.btn.off {
+    background: #ef4444;
+}
+
+
+/* ====== TEMPERATURE GAUGE ====== */
+/* Temperature */
+
+.temp-gauge-card {
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    font-size: 25px;   /* ukuran huruf judul temperature */
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    max-width: 360px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #d0d0d15d, #d0d0d15d);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.378);
+}
+
+.temp-gauge-semicircle {
+    position: relative;
+    width: 260px;
+    height: 140px;
+    margin: auto;
+}
+
+.temp-gauge-semicircle .semi-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Needle */
+.temp-gauge-semicircle .temp-needle-semi {
+    width: 10px;
+    height: 90px;
+    background: #ff0000;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 8px;
+    transition: transform 0.6s ease;
+}
+
+/* Value text */
+.temp-gauge-semicircle .temp-text-semi {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+/* ====== HUMIDITY GAUGE ====== */
+.humidity-gauge-semicircle {
+    position: relative;
+    width: 260px;
+    height: 140px;
+    margin: auto;
+}
+
+.humidity-gauge-semicircle .semi-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Needle */
+.humidity-gauge-semicircle .temp-needle-semi {
+    width: 10px;
+    height: 90px;
+    background: #fe0202;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 8px;
+    transition: transform 0.6s ease;
+}
+
+/* Value text */
+.humidity-gauge-semicircle .temp-text-semi {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+/* GRID GAUGE: Temperature + Humidity */
+.gauge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    justify-items: center;
+    margin: 10px 0;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    .gauge-grid {
+        grid-template-columns: 1fr; /* jadi vertikal di mobile */
+        gap: 1px;
+    }
+}
+
+/* VOLTAGE GAUGE */
+.voltage-gauge-semicircle,
+.current-gauge-semicircle {
+    position: relative;
+    width: 260px;
+    height: 140px;
+    margin: auto;
+}
+
+.voltage-gauge-semicircle .semi-svg,
+.current-gauge-semicircle .semi-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Needle */
+.voltage-gauge-semicircle .temp-needle-semi,
+.current-gauge-semicircle .temp-needle-semi {
+    width: 10px;
+    height: 90px;
+    background: #fe0202;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 8px;
+    transition: transform 0.6s ease;
+}
+
+/* Value text */
+.voltage-gauge-semicircle .temp-text-semi,
+.current-gauge-semicircle .temp-text-semi {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+/* ===== PZEM MONITORING BOX ===== */
+.pzem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .pzem-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pzem-box {
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    background: linear-gradient(135deg, #d0d0d15d, #d0d0d15d);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.378);
+}
+
+.pzem-box h3 {
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.pzem-value {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    transition: 0.3s ease;
+}
+
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .gauge-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrol Pompa air</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="sanyo.css">
+</head>
+
+<body>
+    <a href="index.html" class="back-btn">⬅ Back</a>
+
+    <div class="title">Control Water Pump</div>
+
+    <div class="box">
+        <img id="pumpImg" class="pump-img" src="sanyo_off.png">
+        <h2>Status:  <span id="statusText">OFF</span></h2>
+
+        <button class="btn on" onclick="pumpOn()">TURN ON PUMP</button>
+        <button class="btn off" onclick="pumpOff()">TURN OFF PUMP</button>
+    </div>
+
+    <!-- TIMER -->
+    <div class="timer-box">
+        <h2>TIMER WATER PUMP</h2>
+        <h2>Setting Waktu (menit):</h2>
+
+        <input type="number" id="timerInput" class="timer-input" min="1" placeholder="Menit">
+        <br>
+        <button class="timer-btn" onclick="startTimer()">START</button>
+        <p>TIMER COUNTING DOWN </p>
+        <div id="timerDisplay">00:00</div>
+        <P>MENIT || DETIK</P>
+    </div>
+
+<!-- FIREBASE SDK -->
+<!-- FIREBASE COMPAT (VERSI LAMA) -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+      apiKey: "AIzaSyBCuWRxne3KK9_3AKUU2CKboQ-EceDpsac",
+      authDomain: "cobawaterpump.firebaseapp.com",
+      databaseURL: "https://cobawaterpump-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "cobawaterpump",
+      storageBucket: "cobawaterpump.firebasestorage.app",
+      messagingSenderId: "898234488196",
+      appId: "1:898234488196:web:8a7ad576dbd2299ab239d1",
+      measurementId: "G-QBZJZ093S5"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+
+
+    <!-- LINK JAVASCRIPT -->
+    <script src="sanyo.js"></script>
+</body>
+</html>
